@@ -3,7 +3,8 @@ import EventForm from './EventForm'
 
 export default (props) => {
     const { event, toggleEdit, editMode } = props
-    if(!event.id) return <h1>Loading</h1>
+    console.log(props)
+    if(!event.name) return <h1>Loading</h1>
 
     if(editMode) {
         return (
@@ -12,6 +13,7 @@ export default (props) => {
                     name={event.name}
                     date={event.date}
                     description={event.description}
+                    onChange={props.onChange}
                 />
                 <button onClick={toggleEdit}>Edit</button>
             </>

@@ -6,6 +6,25 @@ import {loadEvent, updateEvent, deleteEvent} from '../actions/events'
 class EventDetailsContainer extends React.Component {
   state = {
       editMode: false
+
+  }
+
+  onChange = (event) => {
+    this.setState({
+        [event.target.name]: event.target.value
+    })
+  }
+
+  onSubmit = (event) => {
+    event.preventDefault()
+    this.setState({
+      name: '',
+      date: '',
+      description: ''
+    })
+
+    
+    this.props.history.push('/')
   }
     
   componentDidMount() {
@@ -18,15 +37,23 @@ class EventDetailsContainer extends React.Component {
   }
 
   toggleEdit = () => {
-    this.setState({ editMode: !this.state.editMode })
+    const { name, date, description } = this.props.event
+    this.setState({ editMode: !this.state.editMode, name, date, description })
   }
 
   render() {
+      const event = this.state.editMode 
+        ? { name: this.state.name, 
+            date: this.state.date, description: 
+            this.state.description } : this.props.event
+
     return <EventDetails 
-        event={this.props.event} 
+        event={event} 
         delete={this.delete}
         toggleEdit={this.toggleEdit}
-        editMode={this.state.editMode}/>
+        editMode={this.state.editMode}
+        onChange={this.onChange}
+        onSubmit={this.onSubmit}/>
   }
 }
 
