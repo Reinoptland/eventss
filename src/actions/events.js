@@ -3,6 +3,7 @@ import request from 'superagent'
 export const EVENTS_FETCHED = 'EVENTS_FETCHED'
 export const EVENT_FETCHED = 'EVENT_FETCHED'
 export const EVENT_CREATE_SUCCESS = 'EVENT_CREATE_SUCCESS'
+export const EVENT_DELETE_SUCCESS = 'EVENT_DELETE_SUCCESS'
 
 const baseUrl = 'http://localhost:4000'
 
@@ -15,6 +16,28 @@ const eventFetched = event => ({
   type: EVENT_FETCHED,
   event
 })
+
+const eventCreateSuccess = event => ({
+  type: EVENT_CREATE_SUCCESS,
+  event
+})
+
+const eventDeleteSuccess = event => ({
+  type: EVENT_DELETE_SUCCESS,
+  event
+})
+
+export const deleteEvent = (event) => (dispatch) => {
+  request
+    .delete(`${baseUrl}/events/${event.id}`)
+    .then(response => {
+      if(response.ok){
+        // passing the original event object because the api 
+        // returns {} instead of the deled record
+        dispatch(eventDeleteSuccess(event))
+      }
+    })
+}
 
 export const loadEvents = () => (dispatch, getState) => {
   // when the state already contains events, we don't fetch them again
@@ -37,10 +60,7 @@ export const loadEvent = (id) => (dispatch) => {
     .catch(console.error)
 }
 
-const eventCreateSuccess = event => ({
-  type: EVENT_CREATE_SUCCESS,
-  event
-})
+
 
 export const createEvent = (data) => dispatch => {
   request
