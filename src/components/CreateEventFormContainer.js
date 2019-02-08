@@ -23,7 +23,9 @@ class CreateEventFormContainer extends React.Component {
       date: '',
       description: ''
     })
+    
     this.props.createEvent(this.state)
+    this.props.history.push('/')
   }
 
   render() {
