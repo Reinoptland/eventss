@@ -13,8 +13,15 @@ class EventDetailsContainer extends React.Component {
       this.props.history.push('/')
   }
 
+  toggleEdit = () => {
+    console.log('EDIT')
+  }
+
   render() {
-    return <EventDetails event={this.props.event} delete={this.delete}/>
+    return <EventDetails 
+        event={this.props.event} 
+        delete={this.delete}
+        toggleEdit={this.toggleEdit}/>
   }
 }
 
