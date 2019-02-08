@@ -31,7 +31,8 @@ class EventDetailsContainer extends React.Component {
         date: '',
         description: ''
     })
-    
+
+    this.toggleEdit()
   }
     
   componentDidMount() {
