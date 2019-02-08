@@ -9,7 +9,8 @@ class EventDetailsContainer extends React.Component {
   }
 
   delete = () => {
-      console.log('BOOM!')
+      this.props.deleteEvent(this.props.event)
+      this.props.history.push('/')
   }
 
   render() {
@@ -21,4 +22,4 @@ const mapStateToProps = state => ({
   event: state.event
 })
 
-export default connect(mapStateToProps, {loadEvent, })(EventDetailsContainer)
+export default connect(mapStateToProps, {loadEvent, deleteEvent})(EventDetailsContainer)
