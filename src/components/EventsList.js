@@ -7,7 +7,7 @@ export default (props) => {
     return (
         <ul>
             {props.events.map(event => 
-                <li>
+                <li key={event.id}>
                     <Link to={`/events/${event.id}`}>
                         {event.name}
                     </Link>
