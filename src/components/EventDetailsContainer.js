@@ -4,6 +4,10 @@ import EventDetails from './EventDetails'
 import {loadEvent, updateEvent, deleteEvent} from '../actions/events'
 
 class EventDetailsContainer extends React.Component {
+  state = {
+      editMode: false
+  }
+    
   componentDidMount() {
     this.props.loadEvent(Number(this.props.match.params.id))
   }
@@ -14,14 +18,15 @@ class EventDetailsContainer extends React.Component {
   }
 
   toggleEdit = () => {
-    console.log('EDIT')
+    this.setState({ editMode: !this.state.editMode })
   }
 
   render() {
     return <EventDetails 
         event={this.props.event} 
         delete={this.delete}
-        toggleEdit={this.toggleEdit}/>
+        toggleEdit={this.toggleEdit}
+        editMode={this.state.editMode}/>
   }
 }
 
