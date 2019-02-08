@@ -1,3 +1,11 @@
+import { EVENTS_FETCHED } from '../actions/events.js'
+
 export default (state = [], action) => {
-    return state
+    switch (action.type) {
+        case EVENTS_FETCHED:
+            return action.events
+    
+        default:
+            return state
+    }
 }

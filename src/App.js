@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux'
 import { Route } from 'react-router-dom'
-import Home from './components/Home'
 import EventsListContainer from './components/EventsListContainer'
 import store from './store'
 
