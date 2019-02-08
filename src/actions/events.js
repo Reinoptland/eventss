@@ -81,7 +81,6 @@ export const createEvent = (data) => dispatch => {
 }
 
 export const updateEvent = (id, data) => dispatch => {
-  console.log(id, data)
   request
     .patch(`${baseUrl}/events/${id}`)
     .send(data)
