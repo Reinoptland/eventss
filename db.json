@@ -20,15 +20,9 @@
     },
     {
       "id": 4,
-      "name": "Fake-sleep meetup",
+      "name": "Fake-slumber party",
       "date": "01-02-2022",
       "description": "This is a short, simple and meaningful meetup for people that casually like to fake-sleep."
-    },
-    {
-      "id": 5,
-      "name": "New Years Eve",
-      "date": "31-12-2022",
-      "description": "It's going to be wait for it."
     },
     {
       "name": "",
@@ -41,12 +35,6 @@
       "date": "2019-01-30",
       "description": "hello",
       "id": 7
-    },
-    {
-      "name": "0000870009",
-      "date": "2019-02-05",
-      "description": "hello",
-      "id": 8
     },
     {
       "name": "Reinoptland",
@@ -91,18 +79,6 @@
       "author": "Anne",
       "body": "I saw six men kicking and punching the mother-in-law. My neighbor said “Are you going to help?” I said, “No, Six should be enough.”",
       "eventId": 2
-    },
-    {
-      "id": 7,
-      "author": "Leon",
-      "body": "People always told me be careful of what you do And dont go around breaking young girls' hearts And mother always told me be careful of who you love And be careful of what you do cause the lie becomes the truth.",
-      "eventId": 5
-    },
-    {
-      "id": 8,
-      "author": "Leo",
-      "body": "I like to wax my legs and stick the hair on my back. Why? Because it keeps my back warm. There's method in my madness.",
-      "eventId": 5
     },
     {
       "id": 9,

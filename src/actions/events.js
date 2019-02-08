@@ -4,6 +4,7 @@ export const EVENTS_FETCHED = 'EVENTS_FETCHED'
 export const EVENT_FETCHED = 'EVENT_FETCHED'
 export const EVENT_CREATE_SUCCESS = 'EVENT_CREATE_SUCCESS'
 export const EVENT_DELETE_SUCCESS = 'EVENT_DELETE_SUCCESS'
+export const EVENT_UPDATE_SUCCESS = 'EVENT_UPDATE_SUCCESS'
 
 const baseUrl = 'http://localhost:4000'
 
@@ -26,6 +27,13 @@ const eventDeleteSuccess = event => ({
   type: EVENT_DELETE_SUCCESS,
   event
 })
+
+const eventUpdateSuccess = event => ({
+  type: EVENT_UPDATE_SUCCESS,
+  event
+})
+
+
 
 export const deleteEvent = (event) => (dispatch) => {
   request
@@ -68,6 +76,17 @@ export const createEvent = (data) => dispatch => {
     .send(data)
     .then(response => {
       dispatch(eventCreateSuccess(response.body))
+    })
+    .catch(console.error)
+}
+
+export const updateEvent = (id, data) => dispatch => {
+  console.log(id, data)
+  request
+    .patch(`${baseUrl}/events/${id}`)
+    .send(data)
+    .then(response => {
+      dispatch(eventUpdateSuccess(response.body))
     })
     .catch(console.error)
 }

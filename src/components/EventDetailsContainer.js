@@ -5,8 +5,10 @@ import {loadEvent, updateEvent, deleteEvent} from '../actions/events'
 
 class EventDetailsContainer extends React.Component {
   state = {
-      editMode: false
-
+      editMode: false,
+      name: '',
+      date: '',
+      description: ''
   }
 
   onChange = (event) => {
@@ -17,14 +19,19 @@ class EventDetailsContainer extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault()
-    this.setState({
-      name: '',
-      date: '',
-      description: ''
+
+    const { name, date, description } = this.state
+
+    this.props.updateEvent(this.props.event.id, {
+        name, date, description        
     })
 
+    this.setState({
+        name: '',
+        date: '',
+        description: ''
+    })
     
-    this.props.history.push('/')
   }
     
   componentDidMount() {
@@ -61,4 +68,4 @@ const mapStateToProps = state => ({
   event: state.event
 })
 
-export default connect(mapStateToProps, {loadEvent, deleteEvent})(EventDetailsContainer)
+export default connect(mapStateToProps, {loadEvent, updateEvent, deleteEvent})(EventDetailsContainer)
